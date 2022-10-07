@@ -221,6 +221,14 @@ function yummy:CreateWindow(icon: "id or emoji", name: string)
 			textlabel.TextSize = 18.000
 			textlabel.TextWrapped = true
 			textlabel.TextXAlignment = Enum.TextXAlignment.Left
+			
+			local bruh = {}
+			
+			function bruh:Edit(newtext)
+				textlabel.Text = newtext
+			end
+				
+			return bruh
 		end
 		
 		function hichat:CreateDesc(text)
@@ -474,6 +482,11 @@ function yummy:CreateWindow(icon: "id or emoji", name: string)
 				end)
 				cooldown = false
 			end)
+		end
+		
+		function hichat:DeleteFolder()
+			MAINFRAME:WaitForChild("pages"):FindFirstChild(name):Destroy()
+			MAINFRAME:WaitForChild("Folder"):FindFirstChild(name):Destroy()
 		end
 		
 		return hichat
